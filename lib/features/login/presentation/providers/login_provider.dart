@@ -1,17 +1,29 @@
+import 'package:challenge_app/core/data/api_response.dart';
 import 'package:challenge_app/core/providers/loading_provider.dart';
-import 'package:challenge_app/core/res/strings.dart';
+import 'package:challenge_app/features/login/domain/entities/credentials.dart';
+import 'package:challenge_app/features/login/domain/usecases/login_usecase.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider with ChangeNotifier {
   final LoadingProvider loadingProvider;
+  final LoginUsecase loginUsecase;
+
+  ApiResponse<String>? _response;
+  ApiResponse<String>? get response => _response;
 
   bool _showPassword = false;
   bool get showPassword => _showPassword;
 
+  bool _remember = false;
+  bool get remember => _remember;
+
   String? _emailErrorMsg;
   String? get emailErrorMsg => _emailErrorMsg;
 
-  LoginProvider({required this.loadingProvider});
+  LoginProvider({
+    required this.loadingProvider,
+    required this.loginUsecase,
+  });
 
   doTask({required BuildContext context}) async {
     this.loadingProvider.showLoading(msg: 'leyendo datos');
@@ -28,14 +40,39 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  toggleRemember() {
+    if (!this._remember) {
+      this._remember = true;
+    } else {
+      this._remember = false;
+    }
+    notifyListeners();
+  }
+
   attempLogin({
     required String email,
     required String password,
-  }) {
+  }) async {
     print('email: $email');
     print('password: $password');
     if (!validateEmail(email: email)) {
       return;
+    }
+    this.loadingProvider.showLoading(msg: 'leyendo datos');
+    try {
+      final credentials = Credentials(
+        email: email,
+        password: password,
+        remember: this._remember,
+      );
+      this._response = await this.loginUsecase.exceute(
+            credentials: credentials,
+          );
+      notifyListeners();
+      this._response = null;
+      this.loadingProvider.hideLoading();
+    } catch (e) {
+      this.loadingProvider.hideLoading();
     }
   }
 

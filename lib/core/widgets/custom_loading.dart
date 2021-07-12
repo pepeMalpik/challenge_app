@@ -12,11 +12,10 @@ class CustomLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<LoadingProvider>(context);
     return Container(
-      child: IndexedStack(
-        index: (provider.isLoading) ? 0 : 1,
+      child: Stack(
         children: [
-          (provider.isLoading) ? LoadingPage() : Container(),
           child,
+          (provider.isLoading) ? LoadingPage() : Container(),
         ],
       ),
     );
@@ -28,10 +27,12 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white.withOpacity(0.4),
-      child: Center(
-        child: CircularProgressIndicator(),
+    return Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.8),
+      body: Container(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'package:challenge_app/core/data/api_response.dart';
 import 'package:challenge_app/core/res/app_colors.dart';
 import 'package:challenge_app/core/res/strings.dart';
+import 'package:challenge_app/core/routes/app_routes.dart';
 import 'package:challenge_app/features/login/presentation/providers/login_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +21,24 @@ class _LoginFormState extends State<LoginForm> {
     super.initState();
     _email = TextEditingController();
     _password = TextEditingController();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      final provider = Provider.of<LoginProvider>(context, listen: false);
+      provider.addListener(() {
+        if (provider.response?.status == Status.COMPLETED) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.home,
+            (route) => false,
+          );
+        }
+        if (provider.response?.status == Status.ERROR) {
+          SnackBar snackError = SnackBar(
+            content: Text(provider.response?.message ?? ''),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackError);
+        }
+      });
+    });
   }
 
   @override
@@ -72,8 +92,8 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
           CheckboxListTile(
-            value: true,
-            onChanged: (_) {},
+            value: provider.remember,
+            onChanged: (_) => provider.toggleRemember(),
             title: Text(Strings.login_check_remember_credentials),
           ),
           MaterialButton(
