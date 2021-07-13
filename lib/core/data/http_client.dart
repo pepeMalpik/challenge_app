@@ -16,7 +16,7 @@ class HttpClient {
     try {
       final endPoint = Uri.parse(uri);
       final response = await http.get(endPoint, headers: header);
-      //print(response.body.toString());
+      print(response.body.toString());
       responseJson = _returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');

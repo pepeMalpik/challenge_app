@@ -1,12 +1,10 @@
-enum APIPath { fetch_album, fetch_todos }
+enum APIPath { fetch_quote }
 
 class APIPathHelper {
   static String getValue(APIPath path) {
     switch (path) {
-      case APIPath.fetch_album:
-        return "/albums/1";
-      case APIPath.fetch_todos:
-        return "/todos";
+      case APIPath.fetch_quote:
+        return "/qod?language=en";
       default:
         return "";
     }

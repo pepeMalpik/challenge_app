@@ -3,6 +3,7 @@ import 'package:challenge_app/core/res/app_colors.dart';
 import 'package:challenge_app/core/res/strings.dart';
 import 'package:challenge_app/core/routes/app_routes.dart';
 import 'package:challenge_app/features/login/presentation/providers/login_provider.dart';
+import 'package:challenge_app/features/login/presentation/widgets/biometric_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -114,7 +115,9 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
             color: AppColors.primary,
-          )
+          ),
+          SizedBox(height: 20),
+          BiometricButton(),
         ],
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:local_auth/local_auth.dart';
+
 import 'package:challenge_app/core/data/api_response.dart';
 import 'package:challenge_app/core/providers/loading_provider.dart';
 import 'package:challenge_app/features/login/domain/entities/credentials.dart';

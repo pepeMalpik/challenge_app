@@ -1,6 +1,8 @@
 import 'package:challenge_app/challenge_app.dart';
 import 'package:challenge_app/core/dependency_injector.dart';
 import 'package:challenge_app/core/providers/loading_provider.dart';
+import 'package:challenge_app/features/home/presentation/providers/quote_provider.dart';
+import 'package:challenge_app/features/login/presentation/providers/biometric_provider.dart';
 import 'package:challenge_app/features/login/presentation/providers/login_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ThemeProvider>(create: (_) => getIt()),
         ChangeNotifierProvider<LoadingProvider>(create: (_) => getIt()),
         ChangeNotifierProvider<LoginProvider>(create: (_) => getIt()),
+        ChangeNotifierProvider<BiometricProvider>(create: (_) => getIt()),
+        ChangeNotifierProvider<Quoteprovider>(create: (_) => getIt()),
       ],
       child: ChallengeApp(),
     );
