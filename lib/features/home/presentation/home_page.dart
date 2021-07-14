@@ -1,3 +1,4 @@
+import 'package:challenge_app/core/routes/app_routes.dart';
 import 'package:challenge_app/core/widgets/custom_loading.dart';
 import 'package:challenge_app/features/home/presentation/providers/quote_provider.dart';
 import 'package:challenge_app/features/login/presentation/providers/login_provider.dart';
@@ -31,7 +32,11 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              print('doLogout');
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AppRoutes.login,
+                (route) => false,
+              );
             },
             icon: Icon(Icons.logout_outlined),
           ),

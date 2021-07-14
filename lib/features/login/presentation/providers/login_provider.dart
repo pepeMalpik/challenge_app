@@ -1,7 +1,6 @@
-import 'package:local_auth/local_auth.dart';
-
 import 'package:challenge_app/core/data/api_response.dart';
 import 'package:challenge_app/core/providers/loading_provider.dart';
+import 'package:challenge_app/core/utils/validate_email.dart';
 import 'package:challenge_app/features/login/domain/entities/credentials.dart';
 import 'package:challenge_app/features/login/domain/usecases/login_usecase.dart';
 import 'package:flutter/material.dart';
@@ -79,9 +78,7 @@ class LoginProvider with ChangeNotifier {
   }
 
   bool validateEmail({required String email}) {
-    bool emailValid = RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email);
+    bool emailValid = ValidateEmail.isValid(email: email);
     if (email.length <= 0) {
       _emailErrorMsg = 'El email es obligatorio';
       notifyListeners();

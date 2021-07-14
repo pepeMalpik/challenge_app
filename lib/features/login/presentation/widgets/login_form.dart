@@ -92,11 +92,7 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ),
           ),
-          CheckboxListTile(
-            value: provider.remember,
-            onChanged: (_) => provider.toggleRemember(),
-            title: Text(Strings.login_check_remember_credentials),
-          ),
+          SizedBox(height: 20),
           MaterialButton(
             minWidth: double.infinity,
             height: 58,

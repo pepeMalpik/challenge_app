@@ -13,7 +13,7 @@ class LoginFooter extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText2,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: null,
           child: Text(
             'registrate',
           ),
