@@ -15,9 +15,6 @@ class LoginProvider with ChangeNotifier {
   bool _showPassword = false;
   bool get showPassword => _showPassword;
 
-  bool _remember = false;
-  bool get remember => _remember;
-
   String? _emailErrorMsg;
   String? get emailErrorMsg => _emailErrorMsg;
 
@@ -41,15 +38,6 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  toggleRemember() {
-    if (!this._remember) {
-      this._remember = true;
-    } else {
-      this._remember = false;
-    }
-    notifyListeners();
-  }
-
   attempLogin({
     required String email,
     required String password,
@@ -64,7 +52,7 @@ class LoginProvider with ChangeNotifier {
       final credentials = Credentials(
         email: email,
         password: password,
-        remember: this._remember,
+        remember: false,
       );
       this._response = await this.loginUsecase.exceute(
             credentials: credentials,

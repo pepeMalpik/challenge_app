@@ -4,8 +4,9 @@ import 'package:challenge_app/features/login/domain/services/login_service.dart'
 
 class LoginServiceImp extends LoginService {
   @override
-  Future<ApiResponse<String>> attempLogin(
-      {required Credentials credentials}) async {
+  Future<ApiResponse<String>> attempLogin({
+    required Credentials credentials,
+  }) async {
     final email = 'pepe@yopmail.com';
     final psw = 'holaPepe';
     await Future.delayed(const Duration(seconds: 2), () => "2");
