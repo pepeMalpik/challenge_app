@@ -61,3 +61,7 @@ flutter test test/features/login/presentation/providers/login_provider_test.dart
  ```sh
 flutter test test/features/quote/presentation/quote/quote_provider_test.dart
 ```
+## Screen Shots
+
+![alt text](https://github.com/pepeMalpik/challenge_app/blob/develop/login.png?raw=true)
+![alt text](https://github.com/pepeMalpik/challenge_app/blob/develop/quote.png?raw=true)
