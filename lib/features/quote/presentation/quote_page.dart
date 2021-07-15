@@ -1,18 +1,17 @@
 import 'package:challenge_app/core/routes/app_routes.dart';
 import 'package:challenge_app/core/widgets/custom_loading.dart';
-import 'package:challenge_app/features/home/presentation/providers/quote_provider.dart';
-import 'package:challenge_app/features/login/presentation/providers/login_provider.dart';
+import 'package:challenge_app/features/quote/presentation/providers/quote_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class QuotePage extends StatefulWidget {
+  const QuotePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _QuotePageState createState() => _QuotePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _QuotePageState extends State<QuotePage> {
   @override
   void initState() {
     super.initState();

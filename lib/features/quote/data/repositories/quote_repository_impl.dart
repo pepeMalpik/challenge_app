@@ -1,6 +1,6 @@
-import 'package:challenge_app/features/home/data/models/quote_response.dart';
-import 'package:challenge_app/features/home/domain/repositories/quote_repository.dart';
-import 'package:challenge_app/features/home/domain/services/quote_service.dart';
+import 'package:challenge_app/features/quote/data/models/quote_response.dart';
+import 'package:challenge_app/features/quote/domain/repositories/quote_repository.dart';
+import 'package:challenge_app/features/quote/domain/services/quote_service.dart';
 
 class QuoteRepositoryImp extends QuoteRepository {
   QuoteService quoteService;

@@ -1,7 +1,7 @@
 import 'package:challenge_app/core/data/api_response.dart';
 import 'package:challenge_app/core/providers/loading_provider.dart';
-import 'package:challenge_app/features/home/data/models/quote_response.dart';
-import 'package:challenge_app/features/home/domain/usecases/quote_usecase.dart';
+import 'package:challenge_app/features/quote/data/models/quote_response.dart';
+import 'package:challenge_app/features/quote/domain/usecases/quote_usecase.dart';
 import 'package:flutter/material.dart';
 
 class Quoteprovider with ChangeNotifier {
