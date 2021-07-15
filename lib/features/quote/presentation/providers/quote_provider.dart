@@ -11,7 +11,10 @@ class Quoteprovider with ChangeNotifier {
   ApiResponse<QuoteResponse>? _quote;
   ApiResponse<QuoteResponse>? get quote => _quote;
 
-  Quoteprovider({required this.quoteUsecase, required this.loadingProvider});
+  Quoteprovider({
+    required this.quoteUsecase,
+    required this.loadingProvider,
+  });
 
   fetchQuote() async {
     this.loadingProvider.showLoading(msg: 'fetching quote...');

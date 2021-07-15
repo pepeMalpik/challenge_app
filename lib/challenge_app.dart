@@ -1,5 +1,4 @@
 import 'package:challenge_app/core/routes/route_generator.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:challenge_app/core/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +34,6 @@ class _ChallengeAppState extends State<ChallengeApp>
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 3;
     final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       title: 'Challenge App',
